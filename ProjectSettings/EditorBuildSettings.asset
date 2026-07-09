@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/Menu.unity
+    guid: dab2255ae4799d24f8f1d122552fe04b
+  - enabled: 1
+    path: Assets/Scenes/FirstRemembrance.unity
+    guid: bc5d8e2f45664f44c840f2ff58fb7279
+  - enabled: 1
+    path: Assets/Scenes/SecondRemembrance.unity
+    guid: 513de427d4bc10b4bbf0635d11514252
+  - enabled: 1
+    path: Assets/Scenes/ThirdRemembrance.unity
+    guid: 781f7c02b962ba84095f3b500bbbcf77
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}
