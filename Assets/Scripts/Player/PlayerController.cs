@@ -1,17 +1,29 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 2f;
     private Rigidbody2D rb;
     private Vector2 movement;
     private Animator animator;
+    private static PlayerController instance;
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+
         rb = GetComponent<Rigidbody2D>();
-        DontDestroyOnLoad(gameObject);
         animator = GetComponent<Animator>();
+
+        DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void Update()
@@ -33,5 +45,20 @@ public class PlayerController : MonoBehaviour
     {
         // Move o personagem aplicando velocidade física
         rb.velocity = movement * moveSpeed;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SpawnPoint spawn = FindFirstObjectByType<SpawnPoint>();
+
+        if (spawn != null)
+        {
+            transform.position = spawn.transform.position;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
