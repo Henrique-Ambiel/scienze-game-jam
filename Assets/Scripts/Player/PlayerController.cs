@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 2f;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Animator animator;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        DontDestroyOnLoad(gameObject);
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -21,6 +24,9 @@ public class PlayerController : MonoBehaviour
 
         // Normaliza o vetor para evitar que o personagem ande mais rápido na diagonal
         movement = new Vector2(moveX, moveY).normalized;
+
+        bool isWalking = movement != Vector2.zero;
+        animator.SetBool("IsWalk", isWalking);
     }
 
     void FixedUpdate()
