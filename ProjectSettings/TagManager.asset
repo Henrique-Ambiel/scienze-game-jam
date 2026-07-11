@@ -43,7 +43,13 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ObjetosEPersonagens
+  - name: Atras
+    uniqueID: 477293755
+    locked: 0
+  - name: Personagens
+    uniqueID: 2619266443
+    locked: 0
+  - name: Objetos
     uniqueID: 1207084239
     locked: 0
   - name: Interagivel
