@@ -12,15 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/FirstRemembrance.unity
     guid: bc5d8e2f45664f44c840f2ff58fb7279
   - enabled: 1
-    path: Assets/Scenes/SecondRemembrance.unity
-    guid: 513de427d4bc10b4bbf0635d11514252
-  - enabled: 1
-    path: Assets/Scenes/ThirdRemembrance.unity
-    guid: 781f7c02b962ba84095f3b500bbbcf77
-  - enabled: 1
-    path: Assets/Scenes/FinalScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 2e862c09fbc25bd4a86c03a406eaee10
   - enabled: 1
