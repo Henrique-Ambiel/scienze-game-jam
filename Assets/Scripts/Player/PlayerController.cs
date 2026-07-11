@@ -21,9 +21,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        DontDestroyOnLoad(gameObject);
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //DontDestroyOnLoad(gameObject);
     }
 
     void Update()
@@ -45,20 +43,5 @@ public class PlayerController : MonoBehaviour
     {
         // Move o personagem aplicando velocidade física
         rb.velocity = movement * moveSpeed;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        SpawnPoint spawn = FindFirstObjectByType<SpawnPoint>();
-
-        if (spawn != null)
-        {
-            transform.position = spawn.transform.position;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
