@@ -13,6 +13,11 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pausePanel.SetActive(false);
+
+        if (inventory == null)
+        {
+            inventory = FindFirstObjectByType<PlayerInventory>();
+        }
     }
 
     void Update()
@@ -20,6 +25,11 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
+        }
+
+        if (isPaused)
+        {
+            UpdateObjectives();
         }
     }
 
@@ -37,26 +47,33 @@ public class PauseMenu : MonoBehaviour
 
     void UpdateObjectives()
     {
+        Debug.Log("Inventory: " + inventory);
+
+        Debug.Log("Tamanco: " + inventory.hasShoe);
+        Debug.Log("Flor: " + inventory.hasFlower);
+        Debug.Log("Flauta: " + inventory.hasFlute);
+        Debug.Log("Peteca: " + inventory.hasShuttlecock);
+
         objectivesText.text = "";
 
         objectivesText.text += inventory.hasShoe ?
-            "☑ Tamanco\n" :
-            "☐ Tamanco\n";
+            "[X] Tamanco\n" :
+            "[ ] Tamanco\n";
 
         objectivesText.text += inventory.hasFlower ?
-            "☑ Flor\n" :
-            "☐ Flor\n";
+            "[X] Flor\n" :
+            "[ ] Flor\n";
 
         objectivesText.text += inventory.hasFlute ?
-            "☑ Flauta (Super Sopro)\n" :
-            "☐ Flauta (Super Sopro)\n";
+            "[X] Flauta (Transformação)\n" :
+            "[ ] Flauta (Transformação)\n";
 
         objectivesText.text += inventory.hasShuttlecock ?
-            "☑ Rosa (Transfomação)\n" :
-            "☐ Rosa (Transfomação)\n";
+            "[X] Peteca (Super Sopro)\n" :
+            "[ ] Peteca (Super Sopro)\n";
 
         objectivesText.text += GoatHealth.goatDefeated ?
-            "☑ Derrotar Cabra Cabriola" :
-            "☐ Derrotar Cabra Cabriola";
+            "[X] Derrotar Cabra Cabriola" :
+            "[ ] Derrotar Cabra Cabriola";
     }
 }

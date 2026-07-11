@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
 
         Debug.Log("Vida restante: " + currentHealth);
+
         UpdateHealthUI();
 
         if (currentHealth <= 0)
