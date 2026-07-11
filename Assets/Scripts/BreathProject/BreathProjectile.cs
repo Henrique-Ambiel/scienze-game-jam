@@ -26,12 +26,15 @@ public class BreathProjectile : MonoBehaviour
     {
         if (other.CompareTag("Breakable"))
         {
-            BreakableObject breakable = other.GetComponent<BreakableObject>();
+            other.GetComponent<BreakableObject>()?.Break();
 
-            if (breakable != null)
-            {
-                breakable.Break();
-            }
+            Destroy(gameObject);
+            return;
+        }
+
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<GoatHealth>()?.TakeDamage(1);
 
             Destroy(gameObject);
         }
