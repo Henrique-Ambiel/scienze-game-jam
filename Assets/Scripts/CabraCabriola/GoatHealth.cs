@@ -4,6 +4,8 @@ public class GoatHealth : MonoBehaviour
 {
     public int maxHealth = 3;
 
+    public static bool goatDefeated = false;
+
     private int currentHealth;
     private Animator animator;
 
@@ -28,6 +30,7 @@ public class GoatHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Cabra derrotada!");
+        goatDefeated = true;
 
         Destroy(gameObject);
     }

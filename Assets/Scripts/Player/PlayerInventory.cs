@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
 
     public bool HasAllItems()
     {
-        return hasShoe && hasFlower && hasShuttlecock && hasFlute;
+        return totalItems >= 4;
     }
 
     public bool CanTransform()
