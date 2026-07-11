@@ -7,6 +7,7 @@ public class PlayerForm : MonoBehaviour
     private PlayerController controller;
     private PlayerVision vision;
     private Animator animator;
+    private PlayerInventory inventory;
 
     [Header("Velocidades")]
     public float oldWomanSpeed = 2f;
@@ -17,6 +18,7 @@ public class PlayerForm : MonoBehaviour
         controller = GetComponent<PlayerController>();
         vision = GetComponent<PlayerVision>();
         animator = GetComponent<Animator>();
+        inventory = GetComponent<PlayerInventory>();
 
         UpdateForm();
     }
@@ -24,7 +26,7 @@ public class PlayerForm : MonoBehaviour
     void Update()
     {
         // Apenas para teste
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (inventory.CanTransform() && Input.GetKeyDown(KeyCode.Space))
         {
             birdForm = !birdForm;
             UpdateForm();
