@@ -48,15 +48,15 @@ public class PauseMenu : MonoBehaviour
             "☐ Flor\n";
 
         objectivesText.text += inventory.hasFlute ?
-            "☑ Flauta (Transformação)\n" :
-            "☐ Flauta (Transformação)\n";
+            "☑ Flauta (Super Sopro)\n" :
+            "☐ Flauta (Super Sopro)\n";
 
         objectivesText.text += inventory.hasShuttlecock ?
-            "☑ Peteca (Super Sopro)\n" :
-            "☐ Peteca (Super Sopro)\n";
+            "☑ Rosa (Transfomação)\n" :
+            "☐ Rosa (Transfomação)\n";
 
         objectivesText.text += GoatHealth.goatDefeated ?
-            "☑ Derrotar Cabra Cabriolli" :
-            "☐ Derrotar Cabra Cabriolli";
+            "☑ Derrotar Cabra Cabriola" :
+            "☐ Derrotar Cabra Cabriola";
     }
 }
