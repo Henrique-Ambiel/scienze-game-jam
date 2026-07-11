@@ -28,14 +28,20 @@ public class PlayerForm : MonoBehaviour
 
     void Update()
     {
-        if (inventory.CanTransform() && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            birdForm = !birdForm;
-            UpdateForm();
+            Debug.Log("Espaço apertado");
+            Debug.Log("CanTransform: " + inventory.CanTransform());
+
+            if (inventory.CanTransform())
+            {
+                birdForm = !birdForm;
+                UpdateForm();
+            }
         }
 
         if (birdForm &&
-            inventory.hasShuttlecock &&
+            inventory.CanShoot() &&
             Input.GetKeyDown(KeyCode.F))
         {
             Shoot();

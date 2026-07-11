@@ -8,7 +8,8 @@ public class CollectibleItem : MonoBehaviour
     {
         Shoe,
         Flower,
-        Shuttlecock
+        Shuttlecock,
+        Flute
     }
 
     public ItemType itemType;
@@ -39,6 +40,9 @@ public class CollectibleItem : MonoBehaviour
 
             case ItemType.Shuttlecock:
                 inventory.hasShuttlecock = true;
+                break;
+            case ItemType.Flute:
+                inventory.hasFlute = true;
                 break;
         }
 
