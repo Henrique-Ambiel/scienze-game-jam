@@ -3,10 +3,13 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 2f;
+
     private Rigidbody2D rb;
-    private Vector2 movement;
     private Animator animator;
     private static PlayerController instance;
+
+    private Vector2 movement;
+    public Vector2 aimDirection = Vector2.right;
 
     void Awake()
     {
@@ -26,14 +29,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Captura o input do teclado (detecta tanto WASD quanto as Setas)
-        // "Horizontal" = A/D ou Seta Esquerda/Direita
-        // "Vertical" = W/S ou Seta Cima/Baixo
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        float moveX = (Input.GetKey(KeyCode.D) ? 1 : 0) +
+              (Input.GetKey(KeyCode.A) ? -1 : 0);
 
-        // Normaliza o vetor para evitar que o personagem ande mais rápido na diagonal
+        float moveY = (Input.GetKey(KeyCode.W) ? 1 : 0) +
+                      (Input.GetKey(KeyCode.S) ? -1 : 0);
+
         movement = new Vector2(moveX, moveY).normalized;
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            aimDirection = Vector2.up;
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            aimDirection = Vector2.down;
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            aimDirection = Vector2.left;
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            aimDirection = Vector2.right;
 
         bool isWalking = movement != Vector2.zero;
         animator.SetBool("IsWalk", isWalking);

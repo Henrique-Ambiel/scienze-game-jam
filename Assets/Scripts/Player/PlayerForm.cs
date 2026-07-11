@@ -13,6 +13,9 @@ public class PlayerForm : MonoBehaviour
     public float oldWomanSpeed = 2f;
     public float birdSpeed = 5f;
 
+    public GameObject breathPrefab;
+    public Transform breathSpawn;
+
     void Start()
     {
         controller = GetComponent<PlayerController>();
@@ -25,11 +28,17 @@ public class PlayerForm : MonoBehaviour
 
     void Update()
     {
-        // Apenas para teste
         if (inventory.CanTransform() && Input.GetKeyDown(KeyCode.Space))
         {
             birdForm = !birdForm;
             UpdateForm();
+        }
+
+        if (birdForm &&
+            inventory.hasShuttlecock &&
+            Input.GetKeyDown(KeyCode.F))
+        {
+            Shoot();
         }
     }
 
@@ -42,5 +51,22 @@ public class PlayerForm : MonoBehaviour
         vision.SetBirdForm(birdForm);
 
         animator.SetBool("BirdForm", birdForm);
+    }
+
+    void Shoot()
+    {
+        GameObject breath = Instantiate(
+            breathPrefab,
+            breathSpawn.position,
+            Quaternion.identity
+        );
+
+        BreathProjectile projectile = breath.GetComponent<BreathProjectile>();
+
+        PlayerController controller = GetComponent<PlayerController>();
+
+        projectile.SetDirection(controller.aimDirection);
+
+        breathSpawn.localPosition = controller.aimDirection * 0.5f;
     }
 }
