@@ -12,8 +12,11 @@ public class PisadeiraDialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Entrou no Trigger: " + other.name);
+
         if (other.CompareTag("Player"))
         {
+            Debug.Log("É o Player!");
             dialoguePanel.SetActive(true);
         }
     }
