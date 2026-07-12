@@ -8,38 +8,16 @@ public class IntroController : MonoBehaviour
     public VideoPlayer videoPlayer;
     public string gameplaySceneName = "GameplayScene";
 
-    [Header("Botão")]
-    public GameObject skipButton;
-
     private bool hasFinished = false;
 
     private void Start()
     {
-        // Garante que o botão começa escondido
-        if (skipButton != null)
-        {
-            skipButton.SetActive(false);
-        }
-
         // Quando o vídeo terminar chama essa função
         videoPlayer.loopPointReached += VideoFinished;
 
         // Começa o vídeo
         videoPlayer.Play();
-
-        // Mostra o botão depois de alguns segundos
-        Invoke(nameof(ShowSkipButton), 2f);
     }
-
-
-    private void ShowSkipButton()
-    {
-        if (skipButton != null)
-        {
-            skipButton.SetActive(true);
-        }
-    }
-
 
     private void VideoFinished(VideoPlayer vp)
     {

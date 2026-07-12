@@ -752,7 +752,8 @@ MonoBehaviour:
   m_text: "Nos dedicamos bastante na produ\xE7\xE3o desse jogo, e\nesperamos que
     tenha se divertido com a experi\xEAncia\ntanto quanto nos divertimos durante
     desenvolvimento!\nMuito obrigado por jogar!\n\nEquipe: Gabriel Hora dos Santos,
-    Henrique Begiato Ambiel\ne Kaio Souto Rodrigues"
+    Henrique Begiato Ambiel\ne Kaio Souto Rodrigues\n\nBiblioteca de \xE1udios: Freesound,
+    Pixabay sound effects, mixkit sound effects"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -30,6 +30,7 @@ public class GoatHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Cabra derrotada!");
+
         goatDefeated = true;
 
         Destroy(gameObject);
